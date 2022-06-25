@@ -54,7 +54,7 @@ const IntroSection = () => {
             </div>
 
             <ul className="list-unstyled navbar__list align-items-center">
-              <li className="home">Home</li>
+              <li className="home nav-item active">Home</li>
               <li>About</li>
               <li>Services</li>
               <li>Doctors</li>
@@ -66,7 +66,7 @@ const IntroSection = () => {
           </nav>
           <div className="bg-dark" id="bg-dark">
             <ul className="list-unstyled" id="open-menu">
-              <li className="home">Home</li>
+              <li className="home nav-item active">Home</li>
               <li>About</li>
               <li>Services</li>
               <li>Doctors</li>
@@ -90,7 +90,7 @@ const IntroSection = () => {
         </div>
       </section>
       <section className="intro">
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center intro__child">
           <div className="emergency">
             <h3>Emergency Cases</h3>
             <p>A small river named Duden flows by their place and supplies</p>

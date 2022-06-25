@@ -65,12 +65,7 @@ nav {
     height: 50vh;
     margin-left: 30px;
 }
-.text__container h1 {
 
-}
-.text__container p{
-
-}
 .text__container button {
    border-top-right-radius: 30px;
    border-bottom-right-radius: 30px;
@@ -85,6 +80,7 @@ nav {
     position: relative;
     top: -55px;
 }
+
 .emergency {
     background-color: #2cbcbc;
     color: white;
@@ -101,6 +97,7 @@ nav {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
 
 @media(max-width: 1024px){
     nav {
@@ -167,5 +164,16 @@ nav {
     }
     .text__container{
         max-width: 100%;
+    }
+    .intro {
+        display: flex;
+        flex-direction: column;
+        top: -55px;
+    }
+    .intro__child {
+        flex-direction: column;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

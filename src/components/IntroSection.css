@@ -152,6 +152,7 @@ nav {
         background-image: url('../assets/images/bg_1.jpg');
         opacity: 2;
         background-position: 15% 15%;
+        transition: 0.2s linear;
         /* background-size: cover; */
     }
     nav {

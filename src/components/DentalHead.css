@@ -1,7 +1,7 @@
 .image__2 {
     background-image: url('../assets/images/about.jpg');
     background-repeat: no-repeat;
-    /* background-size: cover; */
+    background-size: cover;
 }
 
 .chief__doctor__section {
@@ -20,6 +20,7 @@
     color: white;
     font-family: 'Lato-Regular', Arial, sans-serif;
     font-weight: 400;
+    height: 600px;
 }
 
 p {
@@ -29,29 +30,4 @@ p {
 i {
     font-weight: 900;
     font-family: 'Lato-bold';
-}
-.first__row {
-    justify-content: center;
-    align-items: center;
-}
-
-.col-3 {
-    width: 120px;
-}
-.dentist__section h4 {
-   /* text-align: start; */
-}
-
-.dentist__portfolio p {
-    /* width: 60%; */
-}
-.col-3 .square__contain__check {
-    border:  0.01px solid white;
-    width: 60px;
-    height: 60px;
-    transform: rotate(-50deg);
-}
-.fa-check {
-    position: relative;
-    top: 20px;
 }

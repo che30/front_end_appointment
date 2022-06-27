@@ -21,9 +21,12 @@
 body {
   font-family: 'Varela Round',Arial, sans-serif;
 }
-/* .lato-thin {
+.lato-thin {
   font-family: 'Lato-Regular', Arial, sans-serif;
 }
 .lato-ligth {
   font-family: 'Lato-Light',Arial, sans-serif;
-} */
+}
+.Lato-bold {
+  font-family: 'Lato-bold',Arial, sans-serif;
+}

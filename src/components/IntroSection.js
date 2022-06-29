@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './IntroSection.css';
+import { Link } from 'react-router-dom';
 
 const IntroSection = () => {
   const [open, setopen] = useState(false);
@@ -59,8 +60,12 @@ const IntroSection = () => {
               <li>Services</li>
               <li>Doctors</li>
               <li>Contact</li>
-              <li className="btn text-white login">Login</li>
-              <li className="btn text-white signup">Sign up</li>
+              <li className="btn text-white login">
+                <Link to="/Login" className="text-decoration-none text-white"> Login </Link>
+              </li>
+              <li className="btn text-white signup">
+                <Link to="Signup" className="text-decoration-none text-white"> Sign up </Link>
+              </li>
             </ul>
 
           </nav>

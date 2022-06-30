@@ -25,8 +25,8 @@ const Login = () => (
         </div>
         <button type="submit" className="btn btn-primar">Submit</button>
         <p className="text-white Lato-bold have__an__account">
-          Don&apost have an account?
-          <Link to="/Signup" className="text-decoration-none text-white verla-round">Login</Link>
+          Don&apos;t have an account?
+          <Link to="/Signup" className="text-decoration-none text-white verla-round">Signup</Link>
         </p>
       </form>
     </section>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Signup = () => (
   <>
     <section className="Signup__section">
-      <form>
+      <form className="sign__up__form">
         <div className="form-group">
           <input
             type="text"

@@ -19,7 +19,7 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  padding: 10px 10px 50px 10px;
+  padding: 10px 30px 35px 30px;
 
   /* border: 2px solid whitesmoke; */
   box-shadow: 0 3px 66px -24px rgb(0 0 0 / 20%);
@@ -74,8 +74,15 @@ img {
     text-align: center;
 } */
 #consult__form {
-  z-index: 1;
-  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+
+  /* padding-bottom: 30px; */
 }
 
 #consult__form input {
@@ -112,6 +119,8 @@ textarea {
 .delete__edit__form {
   margin-top: 200px;
   width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .delete__edit__form__child {
@@ -121,6 +130,7 @@ textarea {
   border-top: 1px solid rgb(231, 227, 227);
   border-bottom: 1px solid rgb(231, 227, 227);
   justify-content: space-around;
+  margin-top: 350px;
 }
 
 .checkbox__contain {
@@ -189,6 +199,14 @@ textarea {
     margin-top: 500px;
     padding-bottom: 30px;
   }
+
+  .doctors__contain {
+    width: 80%;
+  }
+
+  .delete__edit__form__child {
+    margin-top: 700px;
+  }
 }
 
 @media (max-width: 567px) {
@@ -197,7 +215,7 @@ textarea {
   }
 
   .delete__edit__form__child {
-    margin-top: 650px;
+    margin-top: 800px;
   }
 
   .full__message__section {
@@ -211,6 +229,10 @@ textarea {
   img {
     width: 140px;
   }
+
+  #consult__form {
+    width: 70%;
+  }
 }
 
 @media (max-width: 767px) and (min-width: 567px) {
@@ -223,6 +245,6 @@ textarea {
   }
 
   .delete__edit__form__child {
-    margin-top: 380px;
+    margin-top: 600px;
   }
 }

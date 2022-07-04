@@ -27,7 +27,12 @@
   column-gap: 20px;
   margin-left: auto;
   margin-right: auto;
-  background-color: whitesmoke;
+
+  /* background-color: whitesmoke; */
+}
+
+.last__columns {
+  box-shadow: 0 3px 66px -24px rgb(0 0 0 / 20%);
 }
 
 @media (max-width: 1024px) and (min-width: 767px) {

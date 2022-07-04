@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './Dashboard.css';
+import './PatientDashboard.css';
 import bg1 from '../assets/images/bg_1.jpg';
 
-const Dashboard = () => {
+const PatientDashboard = () => {
   const myArr = [1, 2, 3, 4, 5, 6];
   // const messages = [{1: 'zyleeem kassamali', 2: 'zephania Nkwenty', 3: 'Anangsong desmond'}]
   const [book, setBook] = useState(false);
@@ -138,4 +138,4 @@ const Dashboard = () => {
       </div>
     </>
   );
-}; export default Dashboard;
+}; export default PatientDashboard;

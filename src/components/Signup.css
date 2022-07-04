@@ -1,46 +1,53 @@
 .Signup__section {
-    background-image: url('../assets/images/bg_1.jpg');
-    background-size: cover;
-    background-position: center center;
-    height: 100vh;
+  background-image: url('../assets/images/bg_1.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
 }
+
 form {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: relative;
-    top: 25vh;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  top: 25vh;
 }
+
 .form-group input {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 15px 0 15px 0;
-    font-family: 'Lato-Light',Arial, sans-serif;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 15px 0 15px 0;
+  font-family: 'Lato-Light', Arial, sans-serif;
 }
+
 .btn-primar {
-    background-color: #2cbcbc;
-    color: white;
-    font-family: 'Lato-bold',Arial, sans-serif;
-    font-size: 20px;
-    /* width: 30%;
+  background-color: #2cbcbc;
+  color: white;
+  font-family: 'Lato-bold', Arial, sans-serif;
+  font-size: 20px;
+
+  /* width: 30%;
     align-self: center; */
 }
-.have__an__account{
-    font-weight: 900;
+
+.have__an__account {
+  font-weight: 900;
 }
-@media(max-width: 1024px){
-    form {
-        width: 80%;
-    }
+
+@media (max-width: 1024px) {
+  form {
+    width: 80%;
+  }
 }
-@media(min-width: 767px) and (max-width: 1024px){
-    form {
-        top: 32vh;
-    }
+
+@media (min-width: 767px) and (max-width: 1024px) {
+  form {
+    top: 32vh;
+  }
 }

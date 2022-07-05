@@ -9,14 +9,17 @@
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  height: 400px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   position: relative;
-  top: 25vh;
+  top: 20vh;
 }
 
+.login__form {
+  height: 300px;
+}
 .form-group input {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;

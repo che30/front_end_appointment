@@ -3,12 +3,21 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { applyMiddleware, compose, configureStore } from '@reduxjs/toolkit';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
 import MyRoute from './MyRoute';
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = configureStore({ reducer: rootReducer() }, composeEnhancer(applyMiddleware(thunk)));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <MyRoute />
+    <Provider store={store}>
+      <MyRoute />
+    </Provider>
+
   </BrowserRouter>,
 );
 

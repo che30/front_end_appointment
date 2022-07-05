@@ -2,9 +2,9 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import App from './App';
 import DoctorDashboard from './components/DoctorDashboard';
-import Login from './components/Login';
+import Login from './containers/Login';
 import PatientDashboard from './components/PatientDashboard';
-import Signup from './components/Signup';
+import Signup from './containers/Signup';
 
 const MyRoute = () => (
   <>

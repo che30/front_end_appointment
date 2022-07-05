@@ -12,7 +12,7 @@ const OurServiceHeader = () => (
         </p>
       </div>
       <div className="services">
-        <div>
+        <div className="">
           <div>
             <i className="fa-solid fa-tooth" />
           </div>

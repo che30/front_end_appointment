@@ -4,7 +4,6 @@ import bg1 from '../assets/images/bg_1.jpg';
 
 const PatientDashboard = () => {
   const myArr = [1, 2, 3, 4, 5, 6];
-  // const messages = [{1: 'zyleeem kassamali', 2: 'zephania Nkwenty', 3: 'Anangsong desmond'}]
   const [book, setBook] = useState(false);
   const [readMsg, setReadMsg] = useState(false);
   useEffect(() => {
@@ -29,9 +28,7 @@ const PatientDashboard = () => {
       fullMessage.appendChild(container);
     } else {
       document.getElementById('full__message__section').style.display = 'none';
-      // document.getElementById('del__edit__form').style.display = 'block';
       document.querySelector('.delete__edit__form').style.display = 'block';
-      // document.querySelector('.delete__edit__form').classList.add('bg-danger');
     }
   });
   const handleClick = () => {
@@ -48,7 +45,6 @@ const PatientDashboard = () => {
   };
   const handleCloseMessage = () => {
     setReadMsg(!readMsg);
-    // document.getElementById('full__message').style.display = 'none';
   };
   return (
     <>

@@ -67,6 +67,10 @@ nav {
   margin-left: 6%;
 }
 
+.text__container p {
+  font-size: 1.3rem;
+}
+
 .text__container button {
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;

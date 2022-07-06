@@ -10,6 +10,7 @@ import {
   captureUserPassword,
 } from '../actions';
 import createUser from '../ApiRequests/createUser';
+import PatientDashboard from '../components/PatientDashboard';
 
 const Signup = ({
   captureFirstName,
@@ -18,7 +19,9 @@ const Signup = ({
   capturedCredentials,
   captureEmail,
   error,
+  loggedIn,
 }) => {
+  console.log(loggedIn);
   const [passwordC, setPasswordC] = useState('');
   const dispatch = useDispatch();
   const handleChange = (e) => {
@@ -56,7 +59,13 @@ const Signup = ({
       }));
     }
   };
-
+  if (loggedIn) {
+    return (
+      <>
+        <PatientDashboard />
+      </>
+    );
+  }
   return (
     <>
       <section className="Signup__section">
@@ -140,6 +149,7 @@ Signup.propTypes = {
   captureEmail: PropTypes.func,
   capturePassword: PropTypes.func,
   error: PropTypes.string.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
   capturedCredentials: PropTypes.shape({
     firstname: PropTypes.string,
     lastname: PropTypes.string,
@@ -150,6 +160,7 @@ Signup.propTypes = {
 const mapStateProps = (state) => ({
   capturedCredentials: state.captureUserCredentials,
   error: state.creatingUser.message,
+  loggedIn: state.creatingUser.loggedIn,
 });
 const mapDispatchToProps = (dispatch) => ({
   captureFirstName: (firstname) => dispatch(captureFirstName(firstname)),

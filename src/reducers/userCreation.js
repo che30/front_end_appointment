@@ -3,6 +3,7 @@ import { USER_IS_CREATED, USER_IS_NOT_CREATED } from '../actions';
 const initialState = {
   created: false,
   message: '',
+  loggedIn: false,
 };
 const creatingUser = (state = initialState, action) => {
   switch (action.type) {

@@ -9,12 +9,12 @@ const creatingUser = (state = initialState, action) => {
     case USER_IS_CREATED:
       return {
         ...state,
-        status: action.status,
+        loggedIn: action.loggedIn,
       };
     case USER_IS_NOT_CREATED:
       return {
         ...state,
-        status: action.status,
+        loggedIn: action.loggedIn,
         message: action.msg,
       };
     default:

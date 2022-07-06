@@ -20,10 +20,9 @@ const createUser = (credentials) => async function createUserThunk(dispatch) {
         },
       });
     setLocalStorage(response.data.auth_token);
-    dispatch({ type: USER_IS_CREATED, status: true });
+    dispatch({ type: USER_IS_CREATED, loggedIn: true });
   } catch (error) {
-    console.log(error.response.data.errors);
-    dispatch({ type: USER_IS_NOT_CREATED, msg: error.response.data.errors, status: false });
+    dispatch({ type: USER_IS_NOT_CREATED, msg: error.response.data.errors, loggedIn: false });
   }
 };
 export default createUser;

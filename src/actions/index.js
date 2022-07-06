@@ -20,14 +20,14 @@ const captureUserPassword = (password) => ({
   type: CAPTURE_USER_PASSWORD,
   password,
 });
-const userCreated = (status) => ({
+const userCreated = (loggedIn) => ({
   type: USER_IS_CREATED,
-  status,
+  loggedIn,
 });
-const userNotCreated = (msg, status) => ({
+const userNotCreated = (msg, loggedIn) => ({
   type: USER_IS_NOT_CREATED,
   msg,
-  status,
+  loggedIn,
 });
 export {
   captureFirstName,

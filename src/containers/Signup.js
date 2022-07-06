@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import './Signup.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import {
   captureFirstName,
   captureLastName,
   captureUserEmail,
   captureUserPassword,
 } from '../actions';
+import createUser from '../ApiRequests/createUser';
 
 const Signup = ({
   captureFirstName,
@@ -18,23 +19,43 @@ const Signup = ({
   captureEmail,
 }) => {
   const [passwordC, setPasswordC] = useState('');
+  const dispatch = useDispatch();
   const handleChange = (e) => {
-    if (e.target.name === 'FN') {
-      captureFirstName(e.target.value);
-    }
-    if (e.target.name === 'LN') {
-      captureLastName(e.target.value);
-    }
-    if (e.target.name === 'email') {
-      captureEmail(e.target.value);
-    }
-    if (e.target.name === 'password') {
-      capturePassword(e.target.value);
-    }
-    if (e.target.name === 'passwordC') {
-      setPasswordC(e.target.value);
+    switch (e.target.name) {
+      case 'FN':
+        captureFirstName(e.target.value);
+        break;
+      case 'LN':
+        captureLastName(e.target.value);
+        break;
+      case 'email':
+        captureEmail(e.target.value);
+        break;
+      case 'password':
+        capturePassword(e.target.value);
+        break;
+      case 'passwordC':
+        setPasswordC(e.target.value);
+        break;
+      default:
     }
   };
+  const handleClick = () => {
+    if (capturedCredentials.firstname !== ''
+    && capturedCredentials.lastname !== ''
+    && capturedCredentials.email !== ''
+    && capturedCredentials.password !== ''
+    && passwordC !== '') {
+      dispatch(createUser({
+        firstName: capturedCredentials.firstname,
+        lastName: capturedCredentials.lastname,
+        email: capturedCredentials.email,
+        password: capturedCredentials.password,
+        passwordConfirmation: passwordC,
+      }));
+    }
+  };
+
   return (
     <>
       <section className="Signup__section">
@@ -47,7 +68,7 @@ const Signup = ({
               id="exampleFirstName"
               placeholder="Enter First name"
               name="FN"
-              value={capturedCredentials.firstName}
+              value={capturedCredentials.firstname}
               onChange={(e) => handleChange(e)}
             />
           </div>
@@ -58,7 +79,7 @@ const Signup = ({
               id="exampleInputLastName"
               placeholder="Last Name"
               name="LN"
-              value={capturedCredentials.lastName}
+              value={capturedCredentials.lastname}
               onChange={(e) => handleChange(e)}
             />
           </div>
@@ -95,7 +116,7 @@ const Signup = ({
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <button type="submit" className="btn btn-primar">Submit</button>
+          <button type="button" className="btn btn-primar" onClick={handleClick}>Submit</button>
           <p className="text-white Lato-bold have__an__account">
             Already have an account?
             <Link to="/Login" className="text-decoration-none text-white verla-round">Login</Link>
@@ -111,8 +132,8 @@ Signup.defaultProps = {
   captureEmail() {},
   capturePassword() {},
   capturedCredentials: {
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     email: '',
     password: '',
   },
@@ -123,8 +144,8 @@ Signup.propTypes = {
   captureEmail: PropTypes.func,
   capturePassword: PropTypes.func,
   capturedCredentials: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
+    firstname: PropTypes.string,
+    lastname: PropTypes.string,
     email: PropTypes.string,
     password: PropTypes.string,
   }),

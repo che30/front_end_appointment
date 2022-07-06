@@ -17,6 +17,7 @@ const Signup = ({
   capturePassword,
   capturedCredentials,
   captureEmail,
+  error,
 }) => {
   const [passwordC, setPasswordC] = useState('');
   const dispatch = useDispatch();
@@ -59,6 +60,7 @@ const Signup = ({
   return (
     <>
       <section className="Signup__section">
+        {error ? <div className="error text-center alert alert-danger text-white">{error}</div> : <div /> }
         <form className="sign__up__form">
           <h1 className="text-center text-white pb-3">REGISTER</h1>
           <div className="form-group">
@@ -137,6 +139,7 @@ Signup.propTypes = {
   captureLastName: PropTypes.func,
   captureEmail: PropTypes.func,
   capturePassword: PropTypes.func,
+  error: PropTypes.string.isRequired,
   capturedCredentials: PropTypes.shape({
     firstname: PropTypes.string,
     lastname: PropTypes.string,
@@ -146,6 +149,7 @@ Signup.propTypes = {
 };
 const mapStateProps = (state) => ({
   capturedCredentials: state.captureUserCredentials,
+  error: state.creatingUser.message,
 });
 const mapDispatchToProps = (dispatch) => ({
   captureFirstName: (firstname) => dispatch(captureFirstName(firstname)),

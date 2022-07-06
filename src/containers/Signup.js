@@ -8,6 +8,7 @@ import {
   captureLastName,
   captureUserEmail,
   captureUserPassword,
+  userNotCreated,
 } from '../actions';
 import createUser from '../ApiRequests/createUser';
 import PatientDashboard from '../components/PatientDashboard';
@@ -20,6 +21,7 @@ const Signup = ({
   captureEmail,
   error,
   loggedIn,
+  usernotcreated,
 }) => {
   console.log(loggedIn);
   const [passwordC, setPasswordC] = useState('');
@@ -57,14 +59,12 @@ const Signup = ({
         password: capturedCredentials.password,
         passwordConfirmation: passwordC,
       }));
+    } else {
+      usernotcreated('All the fields must be filled');
     }
   };
   if (loggedIn) {
-    return (
-      <>
-        <PatientDashboard />
-      </>
-    );
+    return <PatientDashboard />;
   }
   return (
     <>
@@ -142,12 +142,14 @@ Signup.defaultProps = {
   captureLastName() {},
   captureEmail() {},
   capturePassword() {},
+  usernotcreated() {},
 };
 Signup.propTypes = {
   captureFirstName: PropTypes.func,
   captureLastName: PropTypes.func,
   captureEmail: PropTypes.func,
   capturePassword: PropTypes.func,
+  usernotcreated: PropTypes.func,
   error: PropTypes.string.isRequired,
   loggedIn: PropTypes.bool.isRequired,
   capturedCredentials: PropTypes.shape({
@@ -167,5 +169,6 @@ const mapDispatchToProps = (dispatch) => ({
   captureLastName: (lastname) => dispatch(captureLastName(lastname)),
   captureEmail: (email) => dispatch(captureUserEmail(email)),
   capturePassword: (password) => dispatch(captureUserPassword(password)),
+  usernotcreated: (reason) => dispatch(userNotCreated(reason)),
 });
 export default connect(mapStateProps, mapDispatchToProps)(Signup);

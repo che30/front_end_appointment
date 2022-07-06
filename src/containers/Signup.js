@@ -26,7 +26,6 @@ const Signup = ({
       captureLastName(e.target.value);
     }
     if (e.target.name === 'email') {
-      console.log('test success');
       captureEmail(e.target.value);
     }
     if (e.target.name === 'password') {
@@ -111,6 +110,12 @@ Signup.defaultProps = {
   captureLastName() {},
   captureEmail() {},
   capturePassword() {},
+  capturedCredentials: {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  },
 };
 Signup.propTypes = {
   captureFirstName: PropTypes.func,
@@ -122,7 +127,7 @@ Signup.propTypes = {
     lastName: PropTypes.string,
     email: PropTypes.string,
     password: PropTypes.string,
-  }).isRequired,
+  }),
 };
 const mapStateProps = (state) => ({
   capturedCredentials: state.captureUserCredentials,

@@ -71,7 +71,7 @@ const Signup = ({
       <section className="Signup__section">
         {error ? <div className="error alert bg-danger text-white">{error}</div> : <div /> }
         <form className="sign__up__form">
-          <h1 className="text-center text-white pb-3">REGISTER</h1>
+          <h1 className="text-center text-white">REGISTER</h1>
           <div className="form-group">
             <input
               type="text"

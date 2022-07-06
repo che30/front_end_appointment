@@ -6,7 +6,7 @@ const Login = () => (
   <>
     <section className="Signup__section">
       <form className="sign__up__form login__form ">
-        <h1 className="text-center text-white pb-5">LOGIN</h1>
+        <h1 className="text-center text-white">LOGIN</h1>
         <div className="form-group">
           <input
             type="email"

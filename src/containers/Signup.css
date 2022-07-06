@@ -6,7 +6,7 @@
 }
 
 .sign__up__form {
-  width: 43%;
+  width: 40vw;
   margin-left: auto;
   margin-right: auto;
   height: 550px;
@@ -46,16 +46,33 @@
 
 @media (max-width: 1024px) {
   form {
-    width: 80%;
+    width: 80vw;
+    top: 25vh;
   }
+  
 }
-@media (max-width: 567px){
+@media (max-width: 566px){
   .sign__up__form {
-    width: 70%;
+    width: 70vw;
+    top: 15vh;
   }
+  .login__form {
+    height: 400px;
+    top: 22vh;
+  }
+  
+}
+@media(max-width: 766px) and (min-width: 567px){
+  .sign__up__form {
+    width: 70vw;
+    top: 25vh;
+  }
+ 
 }
 @media (min-width: 767px) and (max-width: 1024px) {
-  form {
-    top: 32vh;
+  .sign__up__form {
+    width: 70vw;
+    top: 25vh;
   }
+ 
 }

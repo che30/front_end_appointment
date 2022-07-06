@@ -186,6 +186,7 @@ nav {
 
   .text__container {
     max-width: 100%;
+    margin-top: 200px;
   }
 
   .intro {
@@ -200,4 +201,33 @@ nav {
     margin-left: auto;
     margin-right: auto;
   }
+}
+@media(max-width: 567px){
+  .welcome {
+    height: 80vh;
+  }
+  .text__container {
+    height: 40vh;
+    margin-top: 10vh;
+  }
+}
+@media (min-width: 567px) and (max-width: 675px){
+  .welcome {
+    /* height: 60vh; */
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px){
+  .welcome {
+    height: 60vh;
+  }
+  .text__container {
+    margin-top: 10vh;
+  }
+}
+@media (min-width: 676px) and (max-width: 767px){
+  .welcome {
+    height: 40vh;
+  }
+
+ 
 }

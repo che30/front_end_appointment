@@ -6,25 +6,26 @@
 }
 
 .sign__up__form {
-  width: 50%;
+  width: 43%;
   margin-left: auto;
   margin-right: auto;
-  height: 450px;
+  height: 550px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   position: relative;
-  top: 20vh;
+  top: 5vh;
 }
 
 .login__form {
-  height: 300px;
+  height: 400px;
+  top: 10vh;
 }
 .form-group input {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   padding: 15px 0 15px 0;
   font-family: 'Lato-Light', Arial, sans-serif;
 }

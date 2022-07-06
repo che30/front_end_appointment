@@ -40,6 +40,7 @@ const Signup = ({
     <>
       <section className="Signup__section">
         <form className="sign__up__form">
+          <h1 className="text-center text-white pb-3">REGISTER</h1>
           <div className="form-group">
             <input
               type="text"
@@ -89,7 +90,7 @@ const Signup = ({
               type="password"
               className="form-control"
               id="exampleInputPassword2"
-              placeholder="Password repeat"
+              placeholder="Password confirmation"
               name="passwordC"
               value={passwordC}
               onChange={(e) => handleChange(e)}

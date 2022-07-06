@@ -131,12 +131,6 @@ Signup.defaultProps = {
   captureLastName() {},
   captureEmail() {},
   capturePassword() {},
-  capturedCredentials: {
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-  },
 };
 Signup.propTypes = {
   captureFirstName: PropTypes.func,
@@ -148,7 +142,7 @@ Signup.propTypes = {
     lastname: PropTypes.string,
     email: PropTypes.string,
     password: PropTypes.string,
-  }),
+  }).isRequired,
 };
 const mapStateProps = (state) => ({
   capturedCredentials: state.captureUserCredentials,

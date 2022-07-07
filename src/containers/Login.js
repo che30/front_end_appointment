@@ -51,7 +51,6 @@ const Login = ({
   if (loggedIn) {
     if (loggedIn) {
       navigate('/Patientdashboard');
-      // return <Navigate replace={true} to="Patientdashboard" />;
     }
   }
   return (

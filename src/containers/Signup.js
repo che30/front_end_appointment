@@ -73,7 +73,6 @@ const Signup = ({
   };
   if (loggedIn) {
     navigate('/Patientdashboard');
-    // return <Navigate replace={true} to="Patientdashboard" />;
   }
   return (
     <>

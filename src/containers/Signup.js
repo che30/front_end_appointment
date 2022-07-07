@@ -23,7 +23,6 @@ const Signup = ({
   loggedIn,
   usernotcreated,
 }) => {
-  console.log(loggedIn);
   const [passwordC, setPasswordC] = useState('');
   const dispatch = useDispatch();
   const handleChange = (e) => {

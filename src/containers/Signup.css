@@ -14,12 +14,12 @@
   flex-direction: column;
   justify-content: space-around;
   position: relative;
-  top: 5vh;
+  top: 8vh;
 }
 
 .login__form {
   height: 400px;
-  top: 10vh;
+  top: 17vh;
 }
 .form-group input {
   border-top-left-radius: 8px;
@@ -43,14 +43,14 @@
 .have__an__account {
   font-weight: 900;
 }
-
+/* 
 @media (max-width: 1024px) {
   form {
     width: 80vw;
     top: 25vh;
   }
   
-}
+} */
 @media (max-width: 566px){
   .sign__up__form {
     width: 70vw;

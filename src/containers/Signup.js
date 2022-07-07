@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Signup.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
+import jwtDecode from 'jwt-decode';
 import {
   captureFirstName,
   captureLastName,
   captureUserEmail,
   captureUserPassword,
+  userCreated,
   userNotCreated,
 } from '../actions';
 import createUser from '../ApiRequests/createUser';
-import PatientDashboard from '../components/PatientDashboard';
 
 const Signup = ({
   captureFirstName,
@@ -22,9 +23,17 @@ const Signup = ({
   error,
   loggedIn,
   usernotcreated,
+  userLoggedIn,
 }) => {
   const [passwordC, setPasswordC] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem('auth_token'))[0];
+    if ((token !== null) && (((jwtDecode(token)).exp) > Date.now() / 1000)) {
+      userLoggedIn(true);
+    }
+  });
   const handleChange = (e) => {
     switch (e.target.name) {
       case 'FN':
@@ -63,7 +72,8 @@ const Signup = ({
     }
   };
   if (loggedIn) {
-    return <PatientDashboard />;
+    navigate('/Patientdashboard');
+    // return <Navigate replace={true} to="Patientdashboard" />;
   }
   return (
     <>
@@ -142,6 +152,7 @@ Signup.defaultProps = {
   captureEmail() {},
   capturePassword() {},
   usernotcreated() {},
+  userLoggedIn() {},
 };
 Signup.propTypes = {
   captureFirstName: PropTypes.func,
@@ -149,6 +160,7 @@ Signup.propTypes = {
   captureEmail: PropTypes.func,
   capturePassword: PropTypes.func,
   usernotcreated: PropTypes.func,
+  userLoggedIn: PropTypes.func,
   error: PropTypes.string.isRequired,
   loggedIn: PropTypes.bool.isRequired,
   capturedCredentials: PropTypes.shape({
@@ -169,5 +181,6 @@ const mapDispatchToProps = (dispatch) => ({
   captureEmail: (email) => dispatch(captureUserEmail(email)),
   capturePassword: (password) => dispatch(captureUserPassword(password)),
   usernotcreated: (reason) => dispatch(userNotCreated(reason)),
+  userLoggedIn: (status) => dispatch(userCreated(status)),
 });
 export default connect(mapStateProps, mapDispatchToProps)(Signup);

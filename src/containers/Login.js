@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Signup.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
-import { captureUserEmail, captureUserPassword, userNotCreated } from '../actions';
-import PatientDashboard from '../components/PatientDashboard';
+import jwtDecode from 'jwt-decode';
+import {
+  captureUserEmail, captureUserPassword, userCreated, userNotCreated,
+} from '../actions';
 import loginUser from '../ApiRequests/loginUser';
 
 const Login = ({
@@ -14,8 +16,16 @@ const Login = ({
   error,
   loggedIn,
   usernotcreated,
+  userLoggedIn,
 }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem('auth_token'))[0];
+    if ((token !== null) && (((jwtDecode(token)).exp) > Date.now() / 1000)) {
+      userLoggedIn(true);
+    }
+  });
   const handleChange = (e) => {
     switch (e.target.name) {
       case 'email':
@@ -39,7 +49,10 @@ const Login = ({
     }
   };
   if (loggedIn) {
-    return <PatientDashboard />;
+    if (loggedIn) {
+      navigate('/Patientdashboard');
+      // return <Navigate replace={true} to="Patientdashboard" />;
+    }
   }
   return (
     <>
@@ -83,11 +96,13 @@ Login.defaultProps = {
   captureEmail() {},
   capturePassword() {},
   usernotcreated() {},
+  userLoggedIn() {},
 };
 Login.propTypes = {
   captureEmail: PropTypes.func,
   capturePassword: PropTypes.func,
   usernotcreated: PropTypes.func,
+  userLoggedIn: PropTypes.func,
   error: PropTypes.string.isRequired,
   loggedIn: PropTypes.bool.isRequired,
   capturedCredentials: PropTypes.shape({
@@ -103,6 +118,7 @@ const mapStateProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   captureEmail: (email) => dispatch(captureUserEmail(email)),
   capturePassword: (password) => dispatch(captureUserPassword(password)),
+  userLoggedIn: (status) => dispatch(userCreated(status)),
   usernotcreated: (reason) => dispatch(userNotCreated(reason)),
 });
 export default connect(mapStateProps, mapDispatchToProps)(Login);

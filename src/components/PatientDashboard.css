@@ -52,6 +52,8 @@ img {
   border: none;
   color: white;
   border-radius: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .book__appointment__first__child {

@@ -35,6 +35,7 @@ nav {
   font-weight: 300;
   width: 55%;
   justify-content: space-around;
+  z-index: 1;
 }
 
 #open-menu {
@@ -58,6 +59,7 @@ nav {
 }
 
 .text__container {
+  z-index: -1;
   margin-top: 80px;
   display: flex;
   flex-direction: column;

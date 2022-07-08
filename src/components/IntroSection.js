@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './IntroSection.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const IntroSection = () => {
   const [open, setopen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const navigate = useNavigate();
   const handleClick = () => {
     if (open === false) {
       setopen(true);
@@ -30,7 +31,6 @@ const IntroSection = () => {
       document.getElementById('open-menu').style.display = 'block';
     }
   });
-
   return (
     <>
       <section className="welcome">
@@ -43,7 +43,7 @@ const IntroSection = () => {
             <div className="dropdown__contain">
               <button
                 type="button"
-                className="btn dropdown__contain__child_one"
+                className="btn dropdown__contain__child_one text-white"
                 onClick={handleClick}
               >
                 <div><i className="fa fa-bars" /></div>
@@ -76,8 +76,12 @@ const IntroSection = () => {
               <li>Services</li>
               <li>Doctors</li>
               <li>Contact</li>
-              <li className="text-white d__login">Login</li>
-              <li className="text-white d__signup">Sign up</li>
+              <li className="text-white d__login">
+                <Link to="/Login" className="text-decoration-none text-white"> Login </Link>
+              </li>
+              <li className="text-white d__signup">
+                <Link to="Signup" className="text-decoration-none text-white"> Sign up </Link>
+              </li>
             </ul>
           </div>
           <div className="text__container">
@@ -88,7 +92,7 @@ const IntroSection = () => {
               A small river named Duden flows by their
               place and supplies it with the necessary regelialia.
             </p>
-            <button type="button" className=" bg-primary text-white">
+            <button type="button" onClick={() => navigate('/Patientdashboard')} className=" bg-primary text-white">
               Make an Appointment
             </button>
           </div>
@@ -113,4 +117,5 @@ const IntroSection = () => {
     </>
   );
 };
+
 export default IntroSection;

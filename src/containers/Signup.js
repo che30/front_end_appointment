@@ -1,6 +1,7 @@
+/* eslint-disable prefer-destructuring */
 import React, { useEffect, useState } from 'react';
 import './Signup.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
@@ -27,11 +28,14 @@ const Signup = ({
 }) => {
   const [passwordC, setPasswordC] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem('auth_token'))[0];
-    if ((token !== null) && (((jwtDecode(token)).exp) > Date.now() / 1000)) {
-      userLoggedIn(true);
+    let token;
+    if (JSON.parse(localStorage.getItem('auth_token'))) {
+      token = JSON.parse(localStorage.getItem('auth_token'))[0];
+
+      if (((jwtDecode(token)).exp) > Date.now() / 1000) {
+        userLoggedIn(true);
+      }
     }
   });
   const handleChange = (e) => {
@@ -72,7 +76,8 @@ const Signup = ({
     }
   };
   if (loggedIn) {
-    navigate('/Patientdashboard');
+    window.location.replace('/Patientdashboard');
+    // navigate('/Patientdashboard');
   }
   return (
     <>

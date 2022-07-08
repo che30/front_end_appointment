@@ -7,6 +7,8 @@ const setLocalStorage = (auth) => {
   localStorage.setItem('auth_token', JSON.stringify(authorization));
 };
 const clearLocalStorage = () => {
-  localStorage.setItem('auth_token', null);
+  localStorage.clear();
+  // localStorage.setItem('auth_token', null);
+  window.location.replace('/Login');
 };
 export { getLocalStorage, setLocalStorage, clearLocalStorage };

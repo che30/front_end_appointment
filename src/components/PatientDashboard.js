@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './PatientDashboard.css';
 import bg1 from '../assets/images/bg_1.jpg';
+import NavCommon from './NavCommon';
 
 const PatientDashboard = () => {
   const myArr = [1, 2, 3, 4, 5, 6];
@@ -48,6 +49,7 @@ const PatientDashboard = () => {
   };
   return (
     <>
+      <NavCommon />
       <section>
         <div className="header">
           <h1 className="text-center doctor__header text-white">

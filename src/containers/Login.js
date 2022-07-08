@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+/* eslint-disable prefer-destructuring */
+import React, { useEffect, useState } from 'react';
 import './Signup.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
@@ -17,13 +18,21 @@ const Login = ({
   loggedIn,
   usernotcreated,
   userLoggedIn,
+  patient,
 }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const [userStatus, setUserStatus] = useState(false);
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem('auth_token'))[0];
-    if ((token !== null) && (((jwtDecode(token)).exp) > Date.now() / 1000)) {
-      userLoggedIn(true);
+    let token;
+    if (JSON.parse(localStorage.getItem('auth_token'))) {
+      token = JSON.parse(localStorage.getItem('auth_token'))[0];
+
+      if (((jwtDecode(token)).exp) > Date.now() / 1000) {
+        userLoggedIn(true);
+      }
+    }
+    if (patient === true) {
+      setUserStatus(true);
     }
   });
   const handleChange = (e) => {
@@ -49,8 +58,10 @@ const Login = ({
     }
   };
   if (loggedIn) {
-    if (loggedIn) {
-      navigate('/Patientdashboard');
+    if (userStatus === true) {
+      window.location.replace('/PatientDashboard');
+    } else {
+      window.location.replace('/DoctorDashboard');
     }
   }
   return (
@@ -104,6 +115,7 @@ Login.propTypes = {
   userLoggedIn: PropTypes.func,
   error: PropTypes.string.isRequired,
   loggedIn: PropTypes.bool.isRequired,
+  patient: PropTypes.bool.isRequired,
   capturedCredentials: PropTypes.shape({
     email: PropTypes.string,
     password: PropTypes.string,
@@ -113,6 +125,7 @@ const mapStateProps = (state) => ({
   capturedCredentials: state.captureUserCredentials,
   error: state.creatingUser.message,
   loggedIn: state.creatingUser.loggedIn,
+  patient: state.creatingUser.patient,
 });
 const mapDispatchToProps = (dispatch) => ({
   captureEmail: (email) => dispatch(captureUserEmail(email)),

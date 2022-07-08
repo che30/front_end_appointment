@@ -212,6 +212,13 @@ nav {
     height: 40vh;
     margin-top: 10vh;
   }
+  #open-menu{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background-color: black;
+  }
+  
 }
 @media (min-width: 567px) and (max-width: 675px){
   .welcome {
@@ -225,6 +232,13 @@ nav {
   .text__container {
     margin-top: 10vh;
   }
+  #open-menu{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background-color: black;
+  }
+  
 }
 @media (min-width: 676px) and (max-width: 767px){
   .welcome {

@@ -2,38 +2,61 @@ import React, { useEffect, useState } from 'react';
 import './PatientDashboard.css';
 import bg1 from '../assets/images/bg_1.jpg';
 import NavCommon from './NavCommon';
+import fetchDoctors from '../ApiRequests/fetchDoctors';
 
 const PatientDashboard = () => {
-  const myArr = [1, 2, 3, 4, 5, 6];
   const [book, setBook] = useState(false);
   const [readMsg, setReadMsg] = useState(false);
+  const [doctors, setDoctors] = useState([]);
+  const [fetching, setFetching] = useState(true);
+  const [selectedDoctor, setSelectedDoctor] = useState('');
+  const [message, setMessage] = useState('');
+  // const [docFirstName, setDocFirstName] = useState('');
   useEffect(() => {
-    if (book === false) {
-      document.getElementById('consult__form').style.display = 'none';
-      document.getElementById('del__edit__form').style.display = 'block';
-    } else {
-      document.getElementById('consult__form').style.display = 'flex';
-      document.getElementById('del__edit__form').style.display = 'none';
-    }
-  });
-  useEffect(() => {
-    const container = document.createElement('div');
-    if (readMsg) {
-      document.querySelector('.delete__edit__form').style.display = 'none';
-      if (document.querySelector('.full__message').parentNode.lastChild.innerHTML !== '') {
-        document.querySelector('.full__message').parentNode.lastChild.remove();
+    if (fetching === false) {
+      if (book === false) {
+        document.getElementById('consult__form').style.display = 'none';
+        document.getElementById('del__edit__form').style.display = 'block';
+      } else {
+        document.getElementById('consult__form').style.display = 'flex';
+        document.getElementById('del__edit__form').style.display = 'none';
       }
-      container.innerHTML = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';
-      const fullMessage = document.getElementById('full__message__section');
-      fullMessage.style.display = 'block';
-      fullMessage.appendChild(container);
-    } else {
-      document.getElementById('full__message__section').style.display = 'none';
-      document.querySelector('.delete__edit__form').style.display = 'block';
     }
   });
-  const handleClick = () => {
+  useEffect(() => {
+    if (fetching === false) {
+      const container = document.createElement('div');
+      if (readMsg) {
+        document.querySelector('.delete__edit__form').style.display = 'none';
+        if (document.querySelector('.full__message').parentNode.lastChild.innerHTML !== '') {
+          document.querySelector('.full__message').parentNode.lastChild.remove();
+        }
+        container.innerHTML = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';
+        const fullMessage = document.getElementById('full__message__section');
+        fullMessage.style.display = 'block';
+        fullMessage.appendChild(container);
+      } else {
+        document.getElementById('full__message__section').style.display = 'none';
+        document.querySelector('.delete__edit__form').style.display = 'block';
+      }
+    }
+  });
+  useEffect(() => {
+    fetchDoctors().then((response) => {
+      setDoctors(response.data);
+      setFetching(false);
+    });
+  }, [fetching]);
+  const handleClick = (id) => {
     setBook(!book);
+    let chosenDoc;
+    doctors.forEach((doc) => {
+      if (doc.id === Number(id)) {
+        chosenDoc = doc;
+      }
+    });
+    setSelectedDoctor(chosenDoc.email);
+    // setDocFirstName(chosenDoc.first_name);
   };
   const handleSubmit = () => {
     console.log('submitted');
@@ -47,6 +70,18 @@ const PatientDashboard = () => {
   const handleCloseMessage = () => {
     setReadMsg(!readMsg);
   };
+  const handleMessageInput = (value) => {
+    setMessage(value);
+  };
+  if (fetching) {
+    return (
+      <>
+        <div>
+          Fetching data please be patient ...
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <NavCommon />
@@ -57,12 +92,14 @@ const PatientDashboard = () => {
           </h1>
           <div className="doctors__contain">
             <div className="single__doctor__details">
-              {myArr.map((elt) => (
+              {doctors.map((elt) => (
 
-                <div className="first__padding" key={elt}>
+                <div className="first__padding" key={elt.id}>
                   <img src={bg1} alt="first doctor" />
-                  <h6>Dr. Hatti Key</h6>
-                  <p>Neurologist</p>
+                  <h6>
+                    <span>{elt.first_name}</span>
+                  </h6>
+                  <p><span>{elt.specialty}</span></p>
                   <span>
                     <span className="fa fa-star text-primary" />
                     <span className="fa fa-star text-primary" />
@@ -71,7 +108,7 @@ const PatientDashboard = () => {
                     <i className="fa-solid fa-star text-grey" />
                   </span>
                   <br />
-                  <button type="button" className="book__btn" id={elt} onClick={handleClick}>book</button>
+                  <button type="button" className="book__btn" id={elt.id} onClick={(e) => handleClick(e.target.id)}>book</button>
                 </div>
 
               ))}
@@ -87,9 +124,9 @@ const PatientDashboard = () => {
               </div>
               <div className="d-inline-flex justify-content-around align-items-center">
                 <span>To</span>
-                <input className="w-75" type="text" value="test value" />
+                <input className="w-75" type="text" value={selectedDoctor} />
               </div>
-              <textarea id="w3review" name="w3review" rows="4" cols="50" value="test" placeholder="message" />
+              <textarea id="w3review" name="w3review" rows="4" cols="50" onChange={(e) => handleMessageInput(e.target.value)} value={message} placeholder="message" />
               <button type="button" className="create__button" onClick={handleSubmit}>submit</button>
             </form>
           </div>

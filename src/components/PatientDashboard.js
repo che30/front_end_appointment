@@ -18,7 +18,6 @@ const PatientDashboard = () => {
   const [chosenDocId, setChosenDocId] = useState();
   const [appointments, setAppointments] = useState([]);
   const [seeMore, setSeeMore] = useState('');
-  // const [docFirstName, setDocFirstName] = useState('');
   const [mycalAppoint, setMyCalAppoint] = useState([]);
   useEffect(() => {
     if (fetching === false) {
@@ -51,7 +50,7 @@ const PatientDashboard = () => {
   });
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem('auth_token'))[0];
-    const { userId } = jwtDecode(token);
+    const userId = jwtDecode(token);
     fetchAppointments({
       token,
       userId,
@@ -69,7 +68,6 @@ const PatientDashboard = () => {
       const myDoctorDetails = [];
       doctors.forEach((doc) => {
         appointments.forEach((apt) => {
-        // console.log(apt.docor_id, doc.id);
           if (apt.doctor_id === doc.id) {
             const temp = {
               id: apt.id,
@@ -82,7 +80,6 @@ const PatientDashboard = () => {
         });
       });
       setMyCalAppoint(myDoctorDetails);
-    // console.log(myDoctorDetails);
     }
   }, [fetching]);
   const handleClick = (id) => {
@@ -95,11 +92,10 @@ const PatientDashboard = () => {
       }
     });
     setSelectedDoctor(chosenDoc.email);
-    // setDocFirstName(chosenDoc.first_name);
   };
   const handleSubmit = () => {
     const token = JSON.parse(localStorage.getItem('auth_token'))[0];
-    const { userId } = jwtDecode(token);
+    const userId = jwtDecode(token).user_id;
     createAppointment({
       message,
       meetingDate,
@@ -114,13 +110,22 @@ const PatientDashboard = () => {
     setMeetingDate('');
     setBook(false);
   };
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem('auth_token'))[0];
+    const userId = jwtDecode(token).user_id;
+    fetchAppointments({
+      token,
+      userId,
+    }).then((response) => {
+      setAppointments(response.data);
+    });
+  }, []);
   const handleClose = () => {
     setBook(!book);
   };
   const showMessage = (e) => {
     setReadMsg(!readMsg);
     setSeeMore(e.target.innerHTML);
-    // console.log(e.target.innerHTML);
   };
   const handleCloseMessage = () => {
     setReadMsg(!readMsg);
@@ -205,7 +210,7 @@ const PatientDashboard = () => {
                       <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
                       <div className="doc__info">
                         {' '}
-                        <span>{elt.first_name}</span>
+                        <span className="text-primary">{elt.first_name}</span>
                         {' '}
                         <span>{elt.specialty}</span>
                         {' '}

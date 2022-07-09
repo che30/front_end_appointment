@@ -146,10 +146,11 @@ textarea {
   overflow: hidden;
   white-space: nowrap;
   width: 60%;
+  font-weight: 600;
 }
 
 .full__message__section {
-  margin-top: 360px;
+  margin-top: 320px;
   text-align: center;
   border: 1px solid rgb(212, 208, 208);
   width: 30%;
@@ -160,6 +161,7 @@ textarea {
   border-top-right-radius: 10px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 
 .full__message button {
@@ -169,6 +171,7 @@ textarea {
   color: grey;
   font-weight: 900;
 }
+
 
 @media (min-width: 767px) and (max-width: 1024px) {
   .single__doctor__details {

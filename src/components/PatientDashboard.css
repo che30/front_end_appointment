@@ -125,7 +125,7 @@ textarea {
   align-items: center;
   border-top: 1px solid rgb(231, 227, 227);
   border-bottom: 1px solid rgb(231, 227, 227);
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 10px;
 }
 
@@ -171,7 +171,9 @@ textarea {
   color: grey;
   font-weight: 900;
 }
-
+.del__button{
+ left: 40px;
+}
 
 @media (min-width: 767px) and (max-width: 1024px) {
   .single__doctor__details {
@@ -233,6 +235,8 @@ textarea {
   }
   .delete__edit__form {
     margin-top: 130vh;
+    width: 90%;
+    font-size: 0.7rem;
   }
 }
 

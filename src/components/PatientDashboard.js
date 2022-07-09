@@ -74,6 +74,8 @@ const PatientDashboard = () => {
               first_name: doc.first_name,
               specialty: doc.specialty,
               message: apt.message,
+              date: apt.date_of_appointment,
+              dateCreated: apt.created_at,
             };
             myDoctorDetails.push(temp);
           }
@@ -103,6 +105,8 @@ const PatientDashboard = () => {
       chosenDocId,
       token,
 
+    }).then((response) => {
+      setAppointments(response.data);
     });
     setMessage('');
     setMeetingDate('');
@@ -208,7 +212,7 @@ const PatientDashboard = () => {
                       <input type="checkbox" id="vehicle1" name="vehicle1" defaultValue={elt.id} />
                       <div className="doc__info">
                         {' '}
-                        <span className="text-primary">{elt.first_name}</span>
+                        <span className={`text-primary ${elt.first_name}`}>{elt.first_name}</span>
                         {' '}
                         <span>{elt.specialty}</span>
                         {' '}
@@ -223,6 +227,8 @@ const PatientDashboard = () => {
                     >
                       {elt.message}
                     </div>
+                    <div>{elt.date}</div>
+
                   </div>
                 ))}
               </form>

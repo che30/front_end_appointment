@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './PatientDashboard.css';
+import jwtDecode from 'jwt-decode';
 import bg1 from '../assets/images/bg_1.jpg';
 import NavCommon from './NavCommon';
 import fetchDoctors from '../ApiRequests/fetchDoctors';
+import createAppointment from '../ApiRequests/createAppointment';
+import fetchAppointments from '../ApiRequests/fetchAppointments';
 
 const PatientDashboard = () => {
   const [book, setBook] = useState(false);
@@ -11,7 +14,12 @@ const PatientDashboard = () => {
   const [fetching, setFetching] = useState(true);
   const [selectedDoctor, setSelectedDoctor] = useState('');
   const [message, setMessage] = useState('');
+  const [meetingDate, setMeetingDate] = useState('');
+  const [chosenDocId, setChosenDocId] = useState();
+  const [appointments, setAppointments] = useState([]);
+  const [seeMore, setSeeMore] = useState('');
   // const [docFirstName, setDocFirstName] = useState('');
+  const [mycalAppoint, setMyCalAppoint] = useState([]);
   useEffect(() => {
     if (fetching === false) {
       if (book === false) {
@@ -31,7 +39,7 @@ const PatientDashboard = () => {
         if (document.querySelector('.full__message').parentNode.lastChild.innerHTML !== '') {
           document.querySelector('.full__message').parentNode.lastChild.remove();
         }
-        container.innerHTML = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';
+        container.innerHTML = seeMore;
         const fullMessage = document.getElementById('full__message__section');
         fullMessage.style.display = 'block';
         fullMessage.appendChild(container);
@@ -42,10 +50,40 @@ const PatientDashboard = () => {
     }
   });
   useEffect(() => {
-    fetchDoctors().then((response) => {
-      setDoctors(response.data);
-      setFetching(false);
+    const token = JSON.parse(localStorage.getItem('auth_token'))[0];
+    const { userId } = jwtDecode(token);
+    fetchAppointments({
+      token,
+      userId,
+    }).then((response) => {
+      setAppointments(response.data);
+    }).then(() => {
+      fetchDoctors().then((response) => {
+        setDoctors(response.data);
+        setFetching(false);
+      });
     });
+  }, [fetching]);
+  useEffect(() => {
+    if (fetching === false) {
+      const myDoctorDetails = [];
+      doctors.forEach((doc) => {
+        appointments.forEach((apt) => {
+        // console.log(apt.docor_id, doc.id);
+          if (apt.doctor_id === doc.id) {
+            const temp = {
+              id: apt.id,
+              first_name: doc.first_name,
+              specialty: doc.specialty,
+              message: apt.message,
+            };
+            myDoctorDetails.push(temp);
+          }
+        });
+      });
+      setMyCalAppoint(myDoctorDetails);
+    // console.log(myDoctorDetails);
+    }
   }, [fetching]);
   const handleClick = (id) => {
     setBook(!book);
@@ -53,25 +91,45 @@ const PatientDashboard = () => {
     doctors.forEach((doc) => {
       if (doc.id === Number(id)) {
         chosenDoc = doc;
+        setChosenDocId(doc.id);
       }
     });
     setSelectedDoctor(chosenDoc.email);
     // setDocFirstName(chosenDoc.first_name);
   };
   const handleSubmit = () => {
-    console.log('submitted');
+    const token = JSON.parse(localStorage.getItem('auth_token'))[0];
+    const { userId } = jwtDecode(token);
+    createAppointment({
+      message,
+      meetingDate,
+      userId,
+      chosenDocId,
+      token,
+
+    }).then((response) => {
+      console.log(response);
+    });
+    setMessage('');
+    setMeetingDate('');
+    setBook(false);
   };
   const handleClose = () => {
     setBook(!book);
   };
-  const showMessage = () => {
+  const showMessage = (e) => {
     setReadMsg(!readMsg);
+    setSeeMore(e.target.innerHTML);
+    // console.log(e.target.innerHTML);
   };
   const handleCloseMessage = () => {
     setReadMsg(!readMsg);
   };
   const handleMessageInput = (value) => {
     setMessage(value);
+  };
+  const handleDate = (value) => {
+    setMeetingDate(value);
   };
   if (fetching) {
     return (
@@ -127,6 +185,7 @@ const PatientDashboard = () => {
                 <input className="w-75" type="text" value={selectedDoctor} />
               </div>
               <textarea id="w3review" name="w3review" rows="4" cols="50" onChange={(e) => handleMessageInput(e.target.value)} value={message} placeholder="message" />
+              <input className="py-1 lato-ligth date_input " type="date" value={meetingDate} onChange={(e) => handleDate(e.target.value)} />
               <button type="button" className="create__button" onClick={handleSubmit}>submit</button>
             </form>
           </div>
@@ -134,35 +193,38 @@ const PatientDashboard = () => {
       </section>
       <div className="message__section" id="del__edit__form">
         <div>
-          <form className="delete__edit__form">
-            <div
-              className="delete__edit__form__child"
-            >
-              <div className="d-flex align-items-center checkbox__contain">
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                <div className="doc__info">
-                  {' '}
-                  <span>Dr. Hatti Key</span>
-                  {' '}
-                  <span>Neurologist</span>
-                  {' '}
-                </div>
-              </div>
-              <div
-                role="button"
-                tabIndex="0"
-                onKeyPress={showMessage}
-                onClick={showMessage}
-                className="message__doc btn"
-              >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Corrupti laborum, dolor voluptas blanditiis dicta nostrum!
-                Quos dolorem, cupiditate nesciunt fugit
-                quis nemo praesentium, ipsam quia molestias ex blanditiis
-                dolore sint.
-              </div>
-            </div>
-          </form>
+          {appointments
+            ? (
+              <form className="delete__edit__form">
+                { mycalAppoint.map((elt) => (
+                  <div
+                    className="delete__edit__form__child"
+                    key={elt.id}
+                  >
+                    <div className="d-flex align-items-center checkbox__contain">
+                      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+                      <div className="doc__info">
+                        {' '}
+                        <span>{elt.first_name}</span>
+                        {' '}
+                        <span>{elt.specialty}</span>
+                        {' '}
+                      </div>
+                    </div>
+                    <div
+                      role="button"
+                      tabIndex="0"
+                      onKeyPress={(e) => showMessage(e)}
+                      onClick={(e) => showMessage(e)}
+                      className="message__doc btn"
+                    >
+                      {elt.message}
+                    </div>
+                  </div>
+                ))}
+              </form>
+            ) : <div> </div> }
+
         </div>
         <div className="full__message__section" id="full__message__section">
           <button type="button" className="close__button__two" onClick={handleCloseMessage}>

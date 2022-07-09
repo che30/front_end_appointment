@@ -53,6 +53,8 @@ const Login = ({
         email: capturedCredentials.email,
         password: capturedCredentials.password,
       }));
+      captureEmail('');
+      capturePassword('');
     } else {
       usernotcreated('All the fields must be filled');
     }

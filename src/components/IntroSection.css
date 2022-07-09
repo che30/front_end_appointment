@@ -149,6 +149,7 @@ nav {
 
   #open-menu li {
     width: 30%;
+    margin-left: 10px;
   }
 
   .d__login,

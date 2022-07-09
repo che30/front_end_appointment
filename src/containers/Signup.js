@@ -71,6 +71,11 @@ const Signup = ({
         password: capturedCredentials.password,
         passwordConfirmation: passwordC,
       }));
+      captureFirstName('');
+      captureLastName('');
+      captureEmail('');
+      capturePassword('');
+      setPasswordC('');
     } else {
       usernotcreated('All the fields must be filled');
     }

@@ -98,6 +98,7 @@ const PatientDashboard = () => {
   const handleSubmit = () => {
     const token = JSON.parse(localStorage.getItem('auth_token'))[0];
     const userId = jwtDecode(token).user_id;
+    setFetching(false);
     createAppointment({
       message,
       meetingDate,
@@ -105,8 +106,15 @@ const PatientDashboard = () => {
       chosenDocId,
       token,
 
-    }).then((response) => {
-      setAppointments(response.data);
+    }).then(() => {
+      fetchAppointments({
+        token,
+        userId,
+      }).then((response) => {
+        console.log(response.data);
+        setAppointments(response.data);
+        setFetching(true);
+      });
     });
     setMessage('');
     setMeetingDate('');

@@ -103,8 +103,6 @@ const PatientDashboard = () => {
       chosenDocId,
       token,
 
-    }).then((response) => {
-      console.log(response);
     });
     setMessage('');
     setMeetingDate('');
@@ -187,7 +185,7 @@ const PatientDashboard = () => {
               </div>
               <div className="d-inline-flex justify-content-around align-items-center">
                 <span>To</span>
-                <input className="w-75" type="text" value={selectedDoctor} />
+                <input className="w-75" type="text" defaultValue={selectedDoctor} />
               </div>
               <textarea id="w3review" name="w3review" rows="4" cols="50" onChange={(e) => handleMessageInput(e.target.value)} value={message} placeholder="message" />
               <input className="py-1 lato-ligth date_input " type="date" value={meetingDate} onChange={(e) => handleDate(e.target.value)} />
@@ -207,7 +205,7 @@ const PatientDashboard = () => {
                     key={elt.id}
                   >
                     <div className="d-flex align-items-center checkbox__contain">
-                      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+                      <input type="checkbox" id="vehicle1" name="vehicle1" defaultValue={elt.id} />
                       <div className="doc__info">
                         {' '}
                         <span className="text-primary">{elt.first_name}</span>

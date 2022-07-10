@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { loalBackEndUrl } from '../helpers/backEndURI';
+import {remoteBackEndUrl } from '../helpers/backEndURI';
 
 const createAppointment = async (credentials) => {
   const config = {
     headers: { Authorization: `Bearer ${credentials.token}` },
   };
   try {
-    const response = await axios.post(`${loalBackEndUrl()}/api/users/${credentials.userId}/appointments`,
+    const response = await axios.post(`${remoteBackEndUrl()}/api/users/${credentials.userId}/appointments`,
       {
         appointment:
     {

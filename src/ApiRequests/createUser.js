@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IS_IT_DOCTOR_OR_PATIENT, USER_IS_CREATED, USER_IS_NOT_CREATED } from '../actions';
-import { loalBackEndUrl } from '../helpers/backEndURI';
+import {remoteBackEndUrl } from '../helpers/backEndURI';
 import { setLocalStorage } from '../helpers/localStorage';
 
 const createUser = (credentials) => async function createUserThunk(dispatch) {
@@ -8,7 +8,7 @@ const createUser = (credentials) => async function createUserThunk(dispatch) {
     firstName, lastName, email, password, passwordConfirmation,
   } = credentials;
   try {
-    const response = await axios.post(`${loalBackEndUrl()}/signup`,
+    const response = await axios.post(`${remoteBackEndUrl()}/signup`,
 
       {
         user: {

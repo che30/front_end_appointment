@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { loalBackEndUrl } from '../helpers/backEndURI';
+import { remoteBackEndUrl } from '../helpers/backEndURI';
 
 const fetchAppointments = async (credentials) => {
   const token = JSON.parse(localStorage.getItem('auth_token'))[0];
@@ -8,7 +8,7 @@ const fetchAppointments = async (credentials) => {
   const config = {
     headers: { Authorization: `Bearer ${credentials.token}` },
   };
-  const response = await axios.get(`${loalBackEndUrl()}/api/users/${(userId)}/appointments`,
+  const response = await axios.get(`${remoteBackEndUrl()}/api/users/${(userId)}/appointments`,
     config);
   return response;
 };

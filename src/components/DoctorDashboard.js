@@ -17,11 +17,9 @@ const DoctorDashboard = () => {
   useEffect(() => {
     fetDoctorAppointments().then((response) => {
       setDoctorApts(response.data);
-      // console.log(response.data);
       setFetcingDoctorApts(false);
     });
   }, []);
-  console.log(doctorApts);
   if (fetchingDoctorApts) {
     return (
       <>
@@ -85,7 +83,6 @@ const DoctorDashboard = () => {
                 </div>
               </div>
               <div className="w-75">
-                {/* <h6 className="small__padding d-block d-lg-none" /> */}
                 <p>
                   {elt.message}
                 </p>

@@ -10,7 +10,7 @@ const DentalHead = () => (
           <div className="col-md-6 img image__2" />
           <div className="col-md-6 d-flex">
             <div className="about-wrap pt-5">
-              <div className="heading-section heading-section-white mb-5 ftco-animate">
+              <div className="heading-section  heading-section-white mb-5 ftco-animate">
                 <h2 className="mb-2">Dentacare with a personal touch</h2>
                 <p>
                   A small river named Duden flows by their place

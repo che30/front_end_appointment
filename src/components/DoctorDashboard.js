@@ -1,16 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './DoctorDashboard.css';
 import { useNavigate } from 'react-router-dom';
 import NavCommon from './NavCommon';
+import fetDoctorAppointments from '../ApiRequests/fetDoctorAppointments';
 
 const DoctorDashboard = () => {
   const navigate = useNavigate();
+  const [fetchingDoctorApts, setFetcingDoctorApts] = useState(true);
+  const [doctorApts, setDoctorApts] = useState([]);
   useEffect(() => {
     const storage = JSON.parse(localStorage.getItem('auth_token'));
     if (storage === null) {
       navigate('/');
     }
   });
+  useEffect(() => {
+    fetDoctorAppointments().then((response) => {
+      setDoctorApts(response.data);
+      // console.log(response.data);
+      setFetcingDoctorApts(false);
+    });
+  }, []);
+  console.log(doctorApts);
+  if (fetchingDoctorApts) {
+    return (
+      <>
+        <div>Fetching data be patient</div>
+      </>
+    );
+  }
+  if ((fetchingDoctorApts === false) && (doctorApts.length === 0)) {
+    return (
+      <>
+        <div>No Appointments yet</div>
+      </>
+    );
+  }
   return (
     <>
       <NavCommon />
@@ -30,38 +55,44 @@ const DoctorDashboard = () => {
             </div>
             <div />
           </div>
-          <div className="d-flex verla-round doc__appointments
+          {doctorApts.map((elt) => (
+            <div
+              className="d-flex mb-3 verla-round doc__appointments
          justify-content-between
          align-items-baseline"
-          >
+              key={elt.id}
+            >
 
-            <div className="w-100 pt-3">
-              <div className="d-flex align-items-baseline">
-                <h6 className="small__padding">
-                  <span className="blue__color">1.</span>
-                  {' '}
-                  Patient Name:
-                </h6>
-                <p className="small__padding">test name</p>
+              <div className="w-100 pt-3">
+                <div className="d-flex align-items-baseline">
+                  <h6 className="small__padding">
+                    <span className="blue__color">
+                      {elt.id}
+                      .
+                    </span>
+                    {' '}
+                    Patient Name:
+                  </h6>
+                  <p className="small__padding">
+                    {elt.user.first_name}
+                    {' '}
+                    {elt.user.last_name}
+                  </p>
+                </div>
+                <div className="d-flex align-items-baseline">
+                  <h6 className="small__padding">App date:</h6>
+                  <p className="small__padding ">{elt.date_of_appointment}</p>
+                </div>
               </div>
-              <div className="d-flex align-items-baseline">
-                <h6 className="small__padding">App date:</h6>
-                <p className="small__padding ">test date</p>
+              <div className="w-75">
+                {/* <h6 className="small__padding d-block d-lg-none" /> */}
+                <p>
+                  {elt.message}
+                </p>
               </div>
             </div>
-            <div>
-              <h6 className="small__padding d-block d-lg-none">
-                message
-              </h6>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Ex distinctio rerum adipisci sunt porro, id ullam
-                soluta atque cumque
-                ipsam rem. Molestiae odio itaque enim
-                quidem aperiam fugit, adipisci ratione!
-              </p>
-            </div>
-          </div>
+          ))}
+
         </div>
       </div>
     </>

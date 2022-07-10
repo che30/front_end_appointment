@@ -6,7 +6,7 @@ const fetDoctorAppointments = async () => {
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
-  const response = await axios.get('https://cheappointment.herokuapp.com/api/doctorAppointments',
+  const response = await axios.get('https://appointmentendpoints.herokuapp.com/api/doctorAppointments',
     config);
   return response;
 };

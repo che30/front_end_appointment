@@ -8,7 +8,7 @@ const createUser = (credentials) => async function createUserThunk(dispatch) {
     firstName, lastName, email, password, passwordConfirmation,
   } = credentials;
   try {
-    const response = await axios.post('https://cheappointment.herokuapp.com/signup',
+    const response = await axios.post('https://appointmentendpoints.herokuapp.com/signup',
 
       {
         user: {

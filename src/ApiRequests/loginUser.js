@@ -8,7 +8,7 @@ const loginUser = (credentials) => async function loginUserThunk(dispatch) {
     email, password,
   } = credentials;
   try {
-    const response = await axios.post(`${remoteBackEndUrl()}/auth/login`,
+    const response = await axios.post(`${remoteBackEndUrl()}auth/login`,
 
       {
         user: {

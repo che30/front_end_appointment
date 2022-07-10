@@ -6,7 +6,7 @@ const createAppointment = async (credentials) => {
     headers: { Authorization: `Bearer ${credentials.token}` },
   };
   try {
-    const response = await axios.post(`${remoteBackEndUrl()}/api/users/${credentials.userId}/appointments`,
+    const response = await axios.post(`${remoteBackEndUrl()}api/users/${credentials.userId}/appointments`,
       {
         appointment:
     {

@@ -8,7 +8,7 @@ const fetchSingleUser = async () => {
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
-  const response = await axios.get(`${remoteBackEndUrl()}/users/${userId}`,
+  const response = await axios.get(`${remoteBackEndUrl()}users/${userId}`,
     config);
   return response;
 };

@@ -6,7 +6,7 @@ const fetchDoctors = async () => {
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
-  const response = await axios.get(`${remoteBackEndUrl()}/api/doctors`,
+  const response = await axios.get(`${remoteBackEndUrl()}api/doctors`,
     config);
   return response;
 };

@@ -19,7 +19,6 @@ const DoctorDashboard = () => {
   useEffect(() => {
     fetDoctorAppointments().then((response) => {
       fetchSingleUser().then((responsetwo) => {
-        console.log(responsetwo.data.patient);
         setDoctorApts(response.data);
         setDoctorOrPatient(responsetwo.data.patient);
         setFetcingDoctorApts(false);

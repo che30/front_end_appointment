@@ -1,17 +1,19 @@
 .common__nav button {
-    width: 30px;
-    background-color: #1131e9;
-    outline: none;
-    border: none;
-    color: white;
+  width: 30px;
+  background-color: #1131e9;
+  outline: none;
+  border: none;
+  color: white;
 }
-.common__nav button i{
-    font-size: 20px;
+
+.common__nav button i {
+  font-size: 20px;
 }
+
 .common__nav {
-    background-color: #1131e9;
-    align-items: center;
-    align-content: center;
-    justify-content: space-between;
-    padding: 10px 5px 10px 5px;
+  background-color: #1131e9;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding: 10px 5px 10px 5px;
 }

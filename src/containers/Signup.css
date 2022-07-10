@@ -21,6 +21,7 @@
   height: 400px;
   top: 17vh;
 }
+
 .form-group input {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -43,36 +44,37 @@
 .have__an__account {
   font-weight: 900;
 }
-/* 
+
+/*
 @media (max-width: 1024px) {
   form {
     width: 80vw;
     top: 25vh;
   }
-  
+
 } */
-@media (max-width: 566px){
+@media (max-width: 566px) {
   .sign__up__form {
     width: 70vw;
     top: 15vh;
   }
+
   .login__form {
     height: 400px;
     top: 22vh;
   }
-  
 }
-@media(max-width: 766px) and (min-width: 567px){
+
+@media (max-width: 766px) and (min-width: 567px) {
   .sign__up__form {
     width: 70vw;
     top: 25vh;
   }
- 
 }
+
 @media (min-width: 767px) and (max-width: 1024px) {
   .sign__up__form {
     width: 70vw;
     top: 25vh;
   }
- 
 }

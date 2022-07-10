@@ -7,7 +7,6 @@ nav {
 }
 
 .welcome {
- 
   background-image: url('../assets/images/bg_1.jpg');
   opacity: 2;
   height: 100vh;
@@ -206,46 +205,50 @@ nav {
     margin-right: auto;
   }
 }
-@media(max-width: 567px){
+
+@media (max-width: 567px) {
   .welcome {
     height: 80vh;
   }
+
   .text__container {
     height: 40vh;
     margin-top: 10vh;
   }
-  #open-menu{
+
+  #open-menu {
     position: absolute;
     z-index: 1;
     width: 100%;
     background-color: black;
   }
-  
 }
-@media (min-width: 567px) and (max-width: 675px){
+
+@media (min-width: 567px) and (max-width: 675px) {
   .welcome {
     /* height: 60vh; */
   }
 }
-@media (min-width: 768px) and (max-width: 1024px){
+
+@media (min-width: 768px) and (max-width: 1024px) {
   .welcome {
     height: 60vh;
   }
+
   .text__container {
     margin-top: 10vh;
   }
-  #open-menu{
+
+  #open-menu {
     position: absolute;
     z-index: 1;
     width: 100%;
     background-color: black;
   }
-  
 }
-@media (min-width: 676px) and (max-width: 767px){
+
+@media (min-width: 676px) and (max-width: 767px) {
   .welcome {
     height: 40vh;
   }
-
- 
 }

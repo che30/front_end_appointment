@@ -19,8 +19,7 @@ const createAppointment = async (credentials) => {
       config);
     return response;
   } catch (error) {
-    console.log(error.response.data.errors);
+    return error;
   }
-  return true;
 };
 export default createAppointment;

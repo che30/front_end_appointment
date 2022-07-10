@@ -142,8 +142,7 @@ textarea {
   overflow: hidden;
   white-space: nowrap;
   width: 60%;
-  color: #2cbcbc ;
-  
+  color: #2cbcbc;
 }
 
 .full__message__section {
@@ -164,10 +163,12 @@ textarea {
 .full__message button {
   width: auto;
 }
+
 .date_input {
   color: grey;
   font-weight: 900;
 }
+
 .message__section h3 {
   margin-top: 320px;
   color: blue;
@@ -191,9 +192,11 @@ textarea {
     margin-top: 700px;
     margin-bottom: 15px;
   }
+
   .message__section h3 {
     margin-top: 53vh;
   }
+
   .delete__edit__form {
     margin-top: 10%;
     padding-bottom: 30px;
@@ -202,7 +205,7 @@ textarea {
   .doctors__contain {
     width: 90%;
   }
-  
+
   #consult__form input {
     width: 25%;
   }
@@ -212,6 +215,7 @@ textarea {
   .single__doctor__details {
     grid-template-columns: 1fr 1fr;
   }
+
   .full__message__section {
     margin-top: 850px;
   }
@@ -232,12 +236,15 @@ textarea {
   .first__padding {
     padding-bottom: 30px;
   }
+
   #consult__form input {
     width: 48%;
   }
+
   .message__section h3 {
     margin-top: 127vh;
   }
+
   .delete__edit__form {
     margin-top: 10vh;
     width: 90%;
@@ -253,15 +260,14 @@ textarea {
   .full__message__section {
     margin-top: 600px;
   }
+
   .delete__edit__form {
     margin-top: 45vh;
-   
   }
 }
-@media(max-width: 676px) and (min-width: 766px){
+
+@media (max-width: 676px) and (min-width: 766px) {
   .delete__edit__form {
     margin-top: 140vh;
-   
   }
-  
 }

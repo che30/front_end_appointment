@@ -3,9 +3,11 @@ import './DoctorDashboard.css';
 import { useNavigate } from 'react-router-dom';
 import NavCommon from './NavCommon';
 import fetDoctorAppointments from '../ApiRequests/fetDoctorAppointments';
+import fetchSingleUser from '../ApiRequests/fetchSingleUser';
 
 const DoctorDashboard = () => {
   const navigate = useNavigate();
+  const [doctorOrPatient, setDoctorOrPatient] = useState(false);
   const [fetchingDoctorApts, setFetcingDoctorApts] = useState(true);
   const [doctorApts, setDoctorApts] = useState([]);
   useEffect(() => {
@@ -16,21 +18,30 @@ const DoctorDashboard = () => {
   });
   useEffect(() => {
     fetDoctorAppointments().then((response) => {
-      setDoctorApts(response.data);
-      setFetcingDoctorApts(false);
+      fetchSingleUser().then((responsetwo) => {
+        console.log(responsetwo.data.patient);
+        setDoctorApts(response.data);
+        setDoctorOrPatient(responsetwo.data.patient);
+        setFetcingDoctorApts(false);
+      });
     });
   }, []);
+  if (doctorOrPatient === true) {
+    window.location.replace('/PatientDashboard');
+  }
   if (fetchingDoctorApts) {
     return (
       <>
+
         <div>Fetching data be patient</div>
       </>
     );
   }
-  if ((fetchingDoctorApts === false) && (doctorApts.length === 0)) {
+  if ((fetchingDoctorApts === false) && (doctorApts.length === 0) && (doctorOrPatient === false)) {
     return (
       <>
-        <div>No Appointments yet</div>
+        <NavCommon />
+        <h1 className="text-primary text-center">No Appointments yet</h1>
       </>
     );
   }

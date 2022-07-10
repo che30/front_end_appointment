@@ -111,7 +111,6 @@ const PatientDashboard = () => {
         token,
         userId,
       }).then((response) => {
-        console.log(response.data);
         setAppointments(response.data);
         setFetching(true);
       });
@@ -123,6 +122,7 @@ const PatientDashboard = () => {
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem('auth_token'))[0];
     const userId = jwtDecode(token).user_id;
+
     fetchAppointments({
       token,
       userId,

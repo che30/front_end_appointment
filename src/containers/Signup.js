@@ -25,6 +25,7 @@ const Signup = ({
   loggedIn,
   usernotcreated,
   userLoggedIn,
+  patientOrDoctor,
 }) => {
   const [passwordC, setPasswordC] = useState('');
   const dispatch = useDispatch();
@@ -80,6 +81,7 @@ const Signup = ({
       usernotcreated('All the fields must be filled');
     }
   };
+  console.log(patientOrDoctor);
   if (loggedIn) {
     window.location.replace('/Patientdashboard');
     // navigate('/Patientdashboard');
@@ -170,6 +172,7 @@ Signup.propTypes = {
   capturePassword: PropTypes.func,
   usernotcreated: PropTypes.func,
   userLoggedIn: PropTypes.func,
+  patientOrDoctor: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
   loggedIn: PropTypes.bool.isRequired,
   capturedCredentials: PropTypes.shape({
@@ -183,6 +186,7 @@ const mapStateProps = (state) => ({
   capturedCredentials: state.captureUserCredentials,
   error: state.creatingUser.message,
   loggedIn: state.creatingUser.loggedIn,
+  patientOrDoctor: state.creatingUser.patient,
 });
 const mapDispatchToProps = (dispatch) => ({
   captureFirstName: (firstname) => dispatch(captureFirstName(firstname)),

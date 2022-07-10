@@ -34,6 +34,7 @@ const userNotCreated = (msg, loggedIn) => ({
   msg,
   loggedIn,
 });
+
 export {
   captureFirstName,
   captureLastName,

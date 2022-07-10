@@ -22,7 +22,7 @@ const ExperiencedDoctors = () => (
             far from the countries Vokalia
           </p>
         </div>
-        <div className="bg-white pt-5 last__columns">
+        <div className="bg-white pt-5 last__columns second__image">
           <img src={about} alt="specialist" />
           <h6 className="Lato-light py-3">Tom Smith</h6>
           <p className="text-primary">Dentist</p>

@@ -27,8 +27,6 @@
   column-gap: 20px;
   margin-left: auto;
   margin-right: auto;
-
-  /* background-color: whitesmoke; */
 }
 
 .last__columns {
@@ -56,5 +54,12 @@
 
   .last__two {
     margin-top: 20px;
+  }
+  .grid img {
+    width: 50%;
+    border-radius: 50%;
+  }
+  .second__image{
+    margin: 25px;
   }
 }

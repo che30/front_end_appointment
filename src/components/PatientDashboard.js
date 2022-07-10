@@ -208,6 +208,7 @@ const PatientDashboard = () => {
       </section>
       <div className="message__section" id="del__edit__form">
         <div>
+          <h3 className="text-center">Appointments</h3>
           {appointments
             ? (
               <form className="delete__edit__form">

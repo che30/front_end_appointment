@@ -26,6 +26,7 @@ const loginUser = (credentials) => async function loginUserThunk(dispatch) {
     });
     setLocalStorage(response.data.auth_token);
   } catch (error) {
+    console.log(error);
     dispatch({ type: USER_IS_NOT_CREATED, msg: error.response.data.message, loggedIn: false });
   }
 };

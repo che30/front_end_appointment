@@ -117,6 +117,7 @@ textarea {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 20px;
 }
 
 .delete__edit__form__child {
@@ -127,11 +128,6 @@ textarea {
   border-bottom: 1px solid rgb(231, 227, 227);
   justify-content: space-between;
   margin-top: 10px;
-}
-
-.checkbox__contain {
-  /* width: 30%;
-    background-color: aqua; */
 }
 
 .doc__info {
@@ -146,11 +142,12 @@ textarea {
   overflow: hidden;
   white-space: nowrap;
   width: 60%;
-  font-weight: 600;
+  color: #2cbcbc ;
+  
 }
 
 .full__message__section {
-  margin-top: 320px;
+  margin-top: 5vh;
   text-align: center;
   border: 1px solid rgb(212, 208, 208);
   width: 30%;

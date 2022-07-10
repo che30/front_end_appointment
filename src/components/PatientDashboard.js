@@ -221,6 +221,7 @@ const PatientDashboard = () => {
                       <input type="checkbox" id="vehicle1" name="vehicle1" defaultValue={elt.id} />
                       <div className="doc__info">
                         {' '}
+                        <span>Dr. </span>
                         <span className={`text-primary ${elt.first_name}`}>{elt.first_name}</span>
                         {' '}
                         <span>{elt.specialty}</span>

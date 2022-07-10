@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {remoteBackEndUrl } from '../helpers/backEndURI';
+import { remoteBackEndUrl } from '../helpers/backEndURI';
 
 const createAppointment = async (credentials) => {
   const config = {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import {remoteBackEndUrl } from '../helpers/backEndURI';
+import { remoteBackEndUrl } from '../helpers/backEndURI';
 
 const fetchSingleUser = async () => {
   const token = JSON.parse(localStorage.getItem('auth_token'))[0];

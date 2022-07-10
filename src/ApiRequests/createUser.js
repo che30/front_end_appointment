@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IS_IT_DOCTOR_OR_PATIENT, USER_IS_CREATED, USER_IS_NOT_CREATED } from '../actions';
-import {remoteBackEndUrl } from '../helpers/backEndURI';
+import { remoteBackEndUrl } from '../helpers/backEndURI';
 import { setLocalStorage } from '../helpers/localStorage';
 
 const createUser = (credentials) => async function createUserThunk(dispatch) {

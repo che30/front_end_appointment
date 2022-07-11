@@ -92,7 +92,7 @@ const IntroSection = () => {
               A small river named Duden flows by their
               place and supplies it with the necessary regelialia.
             </p>
-            <button type="button" onClick={() => navigate('/Patientdashboard')} className=" bg-primary text-white">
+            <button type="button" onClick={() => navigate('/Patientdashboard')} className="make__appointment bg-primary text-white">
               Make an Appointment
             </button>
           </div>

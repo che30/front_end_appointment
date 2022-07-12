@@ -63,7 +63,7 @@ const DoctorDashboard = () => {
             </div>
             <div />
           </div>
-          {doctorApts.map((elt) => (
+          {doctorApts.map((elt, index) => (
             <div
               className="d-flex mb-3 verla-round doc__appointments
          justify-content-between
@@ -75,7 +75,7 @@ const DoctorDashboard = () => {
                 <div className="d-flex align-items-baseline">
                   <h6 className="small__padding">
                     <span className="blue__color">
-                      {elt.id}
+                      {index}
                       .
                     </span>
                     {' '}

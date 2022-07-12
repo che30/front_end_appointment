@@ -31,7 +31,7 @@ const ExperiencedDoctors = () => (
             far from the countries Vokalia
           </p>
         </div>
-        <div className="bg-white pt-5 last__columns last__two">
+        <div className="bg-white pt-5 last__columns  last__two">
           <img src={about} alt="specialist" />
           <h6 className="Lato-light py-3">Tom Smith</h6>
           <p className="text-primary">Dentist</p>
@@ -40,7 +40,7 @@ const ExperiencedDoctors = () => (
             far from the countries Vokalia
           </p>
         </div>
-        <div className="bg-white pt-5 last__columns  last__two">
+        <div className="bg-white pt-5 last__columns  last">
           <img src={about} alt="specialist" />
           <h6 className="Lato-light py-3">Tom Smith</h6>
           <p className="text-primary w-100">Dentist</p>

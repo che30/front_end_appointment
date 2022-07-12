@@ -52,14 +52,15 @@
     padding: 0;
   }
 
-  .last__two {
-    margin-top: 20px;
-  }
   .grid img {
     width: 130px;
     border-radius: 50%;
   }
   .second__image{
     margin: 25px;
+  }
+
+  .last{
+    margin-top: 20px;
   }
 }

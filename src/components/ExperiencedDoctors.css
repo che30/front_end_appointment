@@ -56,11 +56,12 @@
     width: 130px;
     border-radius: 50%;
   }
-  .second__image{
+
+  .second__image {
     margin: 25px;
   }
 
-  .last{
+  .last {
     margin-top: 25px;
   }
 }

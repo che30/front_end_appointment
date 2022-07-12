@@ -213,9 +213,11 @@ nav {
     height: 40vh;
     margin-top: 10vh;
   }
+
   .make__appointment {
     align-self: center;
   }
+
   #open-menu {
     position: absolute;
     z-index: 1;

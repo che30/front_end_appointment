@@ -6,6 +6,7 @@ import Login from './containers/Login';
 import PatientDashboard from './components/PatientDashboard';
 import Signup from './containers/Signup';
 import ProtectedRoute from './ProtectedRoute';
+import FourOFourError from './components/404Error';
 
 const MyRoute = () => (
   <>
@@ -17,6 +18,8 @@ const MyRoute = () => (
         <Route path="Patientdashboard" element={<PatientDashboard />} />
         <Route path="DoctorDashboard" element={<DoctorDashboard />} />
       </Route>
+      <Route path="*" element={<FourOFourError />} />
+
     </Routes>
   </>
 );

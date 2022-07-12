@@ -1,0 +1,70 @@
+.Signup__section {
+  background-image: url('../assets/images/bg_1.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+.sign__up__form {
+  width: 40vw;
+  margin-left: auto;
+  margin-right: auto;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  top: 8vh;
+}
+
+.login__form {
+  height: 400px;
+  top: 17vh;
+}
+
+.form-group input {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 15px 0 15px 0;
+  font-family: 'Lato-Light', Arial, sans-serif;
+  padding-left: 5px;
+}
+
+.btn-primar {
+  background-color: #2cbcbc;
+  color: white;
+  font-family: 'Lato-bold', Arial, sans-serif;
+  font-size: 20px;
+}
+
+.have__an__account {
+  font-weight: 900;
+}
+
+@media (max-width: 566px) {
+  .sign__up__form {
+    width: 70vw;
+    top: 15vh;
+  }
+
+  .login__form {
+    height: 400px;
+    top: 22vh;
+  }
+}
+
+@media (max-width: 766px) and (min-width: 567px) {
+  .sign__up__form {
+    width: 70vw;
+    top: 25vh;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1024px) {
+  .sign__up__form {
+    width: 70vw;
+    top: 25vh;
+  }
+}

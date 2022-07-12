@@ -1,0 +1,256 @@
+nav {
+  color: white;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.welcome {
+  background-image: url('../assets/images/bg_1.jpg');
+  opacity: 2;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.appointment__header {
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.appoint_font_weight {
+  font-weight: lighter;
+}
+
+.dropdown__contain {
+  display: none;
+}
+
+.navbar__list {
+  display: flex;
+  font-size: 13px;
+  font-weight: 300;
+  width: 55%;
+  justify-content: space-around;
+  z-index: 1;
+}
+
+#open-menu {
+  display: none;
+  justify-content: start;
+  height: 300px;
+}
+
+#open-menu li {
+  padding: 5px 0 5px 0;
+}
+
+.home {
+  font-weight: lighter;
+}
+
+.login,
+.signup {
+  border: 0.01px solid white;
+  border-radius: 10px;
+}
+
+.text__container {
+  z-index: -1;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 50%;
+  height: 50vh;
+  margin-left: 6%;
+}
+
+.text__container p {
+  font-size: 1.3rem;
+}
+
+.text__container button {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding: 20px 0 20px 0;
+  border: none;
+  width: 250px;
+}
+
+/* introsection */
+.intro {
+  position: relative;
+  top: -55px;
+}
+
+.emergency {
+  background-color: #2cbcbc;
+  color: white;
+}
+
+.opening__hours {
+  background-color: #21aac4;
+  color: white;
+}
+
+.emergency,
+.opening__hours {
+  text-align: start;
+  width: 350px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  nav {
+    margin-top: 0;
+    background-color: black;
+    align-items: center;
+    align-content: center;
+    padding: 15px 50px 15px 50px;
+    justify-content: space-between;
+  }
+
+  .welcome {
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    background-position: 70% center;
+  }
+
+  .navbar__list {
+    display: none;
+  }
+
+  div .fa-bars {
+    font-size: 20px;
+  }
+
+  .dropdown__contain {
+    display: block;
+    color: white;
+  }
+
+  .dropdown__contain__child_one {
+    display: flex;
+    align-items: baseline;
+    color: grey;
+    width: 120px;
+    justify-content: space-around;
+  }
+
+  #open-menu li {
+    width: 30%;
+    margin-left: 10px;
+  }
+
+  .d__login,
+  .d__signup {
+    border: 0.01px solid white;
+    border-radius: 10px;
+    width: 30px;
+  }
+
+  .d__signup {
+    margin-top: 10px;
+  }
+
+  .text__container {
+    max-width: 60%;
+    height: 30vh;
+  }
+}
+
+@media (max-width: 676px) {
+  .welcome {
+    background-image: url('../assets/images/bg_1.jpg');
+    opacity: 2;
+    background-position: 15% 15%;
+    transition: 0.2s linear;
+  }
+
+  nav {
+    margin-top: 0;
+    background-color: black;
+    align-items: center;
+    align-content: center;
+    padding: 15px 10px 15px 10px;
+    justify-content: space-between;
+  }
+
+  .text__container {
+    max-width: 100%;
+    margin-top: 200px;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    top: -55px;
+  }
+
+  .intro__child {
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 567px) {
+  .welcome {
+    height: 80vh;
+  }
+
+  .text__container {
+    height: 40vh;
+    margin-top: 10vh;
+  }
+
+  .make__appointment {
+    align-self: center;
+  }
+
+  #open-menu {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background-color: black;
+  }
+}
+
+@media (min-width: 567px) and (max-width: 675px) {
+  .welcome {
+    /* height: 60vh; */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .welcome {
+    height: 60vh;
+  }
+
+  .text__container {
+    margin-top: 10vh;
+  }
+
+  #open-menu {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background-color: black;
+  }
+}
+
+@media (min-width: 676px) and (max-width: 767px) {
+  .welcome {
+    height: 40vh;
+  }
+}

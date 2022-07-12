@@ -1,0 +1,62 @@
+.fa-tooth,
+.fa-syringe,
+.fa-teeth {
+  font-size: 50px;
+  color: #21aac4;
+}
+
+/* our services header */
+.our__service__header {
+  font-size: 28px;
+  color: #21aac4;
+  margin: 20px 0 20px 0;
+}
+
+.our__service__header__contain p {
+  color: grey;
+  max-width: calc(100% - 100px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* services */
+.services {
+  margin-top: 120px;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flaticon-tooth {
+  color: #21aac4;
+}
+
+.services p {
+  color: gray;
+  max-width: 250px;
+}
+
+.services h3 {
+  padding-top: 80px;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .services {
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+  }
+
+  .services h3 {
+    padding-top: 30px;
+  }
+
+  .services p {
+    max-width: calc(100% - 100px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

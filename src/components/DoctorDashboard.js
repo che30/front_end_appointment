@@ -88,11 +88,14 @@ const DoctorDashboard = () => {
                   </p>
                 </div>
                 <div className="d-flex align-items-baseline">
-                  <h6 className="small__padding">App date:</h6>
+                  <h6 className="small__padding app__date">App date:</h6>
                   <p className="small__padding ">{elt.date_of_appointment}</p>
                 </div>
+                <div className="msg__on__small__screen">
+                  <h5 className="text-center">message</h5>
+                </div>
               </div>
-              <div className="w-75">
+              <div className="w-75 padding__on__small__screen">
                 <p>
                   {elt.message}
                 </p>

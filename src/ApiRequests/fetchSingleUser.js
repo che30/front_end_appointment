@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-// import { remoteBackEndUrl } from '../helpers/backEndURI';
+import remoteBackEndUrl from '../helpers/backEndURI';
 
 const fetchSingleUser = async () => {
   const token = JSON.parse(localStorage.getItem('auth_token'))[0];
@@ -8,7 +8,7 @@ const fetchSingleUser = async () => {
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
-  const response = await axios.get(`https://appointmentendpoints.herokuapp.com/users/${userId}`,
+  const response = await axios.get(`${remoteBackEndUrl()}/users/${userId}`,
     config);
   return response;
 };

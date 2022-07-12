@@ -1,12 +1,12 @@
 import axios from 'axios';
-// import { remoteBackEndUrl } from '../helpers/backEndURI';
+import remoteBackEndUrl from '../helpers/backEndURI';
 
 const createAppointment = async (credentials) => {
   const config = {
     headers: { Authorization: `Bearer ${credentials.token}` },
   };
   try {
-    const response = await axios.post(`https://appointmentendpoints.herokuapp.com/api/users/${credentials.userId}/appointments`,
+    const response = await axios.post(`${remoteBackEndUrl()}/api/users/${credentials.userId}/appointments`,
       {
         appointment:
     {

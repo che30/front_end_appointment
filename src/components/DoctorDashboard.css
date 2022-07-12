@@ -51,6 +51,13 @@
 .blue__color {
   color: #2cbcbc;
 }
+.app__date {
+  margin-left: 15px;
+}
+
+.msg__on__small__screen {
+  display: none;
+}
 
 .small__padding {
   padding-left: 10px;
@@ -63,5 +70,16 @@
 
   .d-grid h6 {
     display: none;
+  }
+
+  .msg__on__small__screen {
+    display: block;
+  }
+  .padding__on__small__screen{
+    text-align: center;
+  }
+  
+  .padding__on__small__screen p {
+    width: 130%;
   }
 }

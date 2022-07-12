@@ -3,10 +3,11 @@
 This is an MVP App with two types of users, Doctors and patients. Doctors are added by the admin and they only login into the system while patients sign up and book consultation appointments.
 
 # Screenshot
-![screenshot]('../assets/images/AppointmenPatientDashboard.png')
-![screenshot]('../assets/images/AppointmenPatientDashboard.png')
-![screenshot]('../assets/images/AppointmentSignUp.png')
-![screenshot]('../assets/images/AppontmentLogin.png')
+![screenshot](./src/assets/images/AppointmentHome.png)
+![screenshot](../assets/images/AppointmenPatientDashboard.png)
+![screenshot](../assets/images/AppointmenPatientDashboard.png)
+![screenshot](../assets/images/AppointmentSignUp.png)
+![screenshot](../assets/images/AppontmentLogin.png)
 ## Built With
 - Ruby
 - Rails framework(API Endpoints)

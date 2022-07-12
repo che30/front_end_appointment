@@ -32,7 +32,7 @@ const DoctorDashboard = () => {
     return (
       <>
 
-        <div>Fetching data be patient</div>
+        <div />
       </>
     );
   }

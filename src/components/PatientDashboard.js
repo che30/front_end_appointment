@@ -149,9 +149,7 @@ const PatientDashboard = () => {
   if (fetching) {
     return (
       <>
-        <div>
-          Fetching data please be patient ...
-        </div>
+        <div />
       </>
     );
   }

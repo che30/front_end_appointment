@@ -4,10 +4,10 @@ This is an MVP App with two types of users, Doctors and patients. Doctors are ad
 
 # Screenshot
 ![screenshot](./src/assets/images/AppointmentHome.png)
-![screenshot](../assets/images/AppointmenPatientDashboard.png)
-![screenshot](../assets/images/AppointmenPatientDashboard.png)
-![screenshot](../assets/images/AppointmentSignUp.png)
-![screenshot](../assets/images/AppontmentLogin.png)
+![screenshot](./src/assets/images/AppointmenPatientDashboard.png)
+![screenshot](./src/assets/images/AppointmenPatientDashboard.png)
+![screenshot](./src/assets/images/AppointmentSignUp.png)
+![screenshot](./src/assets/images/AppontmentLogin.png)
 ## Built With
 - Ruby
 - Rails framework(API Endpoints)
